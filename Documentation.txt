@@ -1,0 +1,110 @@
+/* Additional syntax color definitions for mdsp56k grammar. Each can be disabled
+   individually if you prefer the default TextMate color to apply. Following
+   definitions have to be added in your styles.less file in your .atom config folder
+   once you installed the mdsp56k package (e.g. with Atom 1.33, go in
+   Edit -> Preferences -> Open Config Folder).
+   The example colors here are made for a dark editor theme.
+   The author is interested in seeing your favourite colour highlighting, please
+   feel free to share with him! */
+
+/* local labels */
+.syntax--entity.syntax--name.syntax--function.syntax--local.syntax--mdsp56k {
+color: #61afef;
+}
+/* global labels
+.syntax--entity.syntax--name.syntax--function.syntax--mdsp56k {
+color: #abb2bf;
+} */
+/* global constants */
+.syntax--support.syntax--constant.syntax--mdsp56k {
+color: #e06c75;
+}
+/* decimal values
+.syntax--constant.syntax--numeric.syntax--dec.syntax--mdsp56k {
+  color: #d19a66;
+}*/
+/* hexadecimal values
+.syntax--constant.syntax--numeric.syntax--hex.syntax--mdsp56k {
+  color: #d19a66;
+}*/
+/* binary values
+.syntax--constant.syntax--numeric.syntax--bin.syntax--mdsp56k {
+  color: #d19a66;
+}*/
+/* float values
+.syntax--constant.syntax--numeric.syntax--float.syntax--mdsp56k {
+  color: orange;
+}*/
+/* Arithmetical & Logical Unit registers - A0,A1,A2,B0,B1,B2,L:X,L:Y */
+.syntax--storage.syntax--other.syntax--register.syntax--aluabxyclassI.syntax--mdsp56k {
+  color: #cb72df;
+}
+/* Arithmetical & Logical Unit registers A,B */
+.syntax--storage.syntax--other.syntax--register.syntax--aluab.syntax--mdsp56k {
+  /*color: #bb82cf;*/
+  color: #abb2bf;
+}
+/* Arithmetical & Logical Unit registers X0 X1 */
+.syntax--storage.syntax--other.syntax--register.syntax--alux.syntax--mdsp56k {
+  color: #8b82df;
+}
+/* Arithmetical & Logical Unit registers Y0,Y1 */
+.syntax--storage.syntax--other.syntax--register.syntax--aluy.syntax--mdsp56k {
+  color: #ab72bf;
+}
+/* Adress Generation Units registers - low set (0-3) */
+.syntax--storage.syntax--other.syntax--register.syntax--agulow.syntax--mdsp56k {
+  color: #8b82df;
+}
+/* Adress Generation Units registers - high set (4-7) */
+.syntax--storage.syntax--other.syntax--register.syntax--aguhigh.syntax--mdsp56k {
+  color: #ab72bf;
+}
+/* System control registers */
+.syntax--storage.syntax--other.syntax--register.syntax--control.syntax--mdsp56k {
+  color: #5bb25f;
+}
+/* Arithmetic instructions */
+.syntax--keyword.syntax--operator.syntax--arithmetic.syntax--mdsp56k {
+  color: #abb2bf;
+}
+/* Logical instructions */
+.syntax--keyword.syntax--operator.syntax--logical.syntax--mdsp56k {
+  color: #8bb28f;
+}
+/* Bitwise instructions */
+.syntax--keyword.syntax--operator.syntax--bitwise.syntax--mdsp56k {
+  color: #abb2bf;
+}
+/* Registers assigment instructions */
+.syntax--keyword.syntax--operator.syntax--assignment.syntax--mdsp56k {
+  color: #abb2bf;
+}
+/* branch instructions */
+.syntax--keyword.syntax--control.syntax--flow.syntax--mdsp56k {
+  color: #7ba2ef;
+}
+/* conditional branch instructions */
+.syntax--keyword.syntax--control.syntax--conditional.syntax--flow.syntax--mdsp56k {
+  color: #7ba2ef;
+}
+/* Assembler directives
+.syntax--keyword.syntax--other.syntax--directive.syntax--mdsp56k {
+  color: #ebf2ff;
+}*/
+/* System control instructions */
+.syntax--keyword.syntax--other.syntax--system.syntax--mdsp56k {
+  color: #abb2bf;
+}
+/* transfer over X bus */
+.syntax--keyword.syntax--other.syntax--transferx.syntax--mdsp56k {
+  color: #8b82df;
+}
+/* transfer over Y bus */
+.syntax--keyword.syntax--other.syntax--transfery.syntax--mdsp56k {
+  color: #ab72bf;
+}
+/* transfer over both X and Y or program memory */
+.syntax--keyword.syntax--other.syntax--transferlp.syntax--mdsp56k {
+  color: #abb2bf;
+}

@@ -1,0 +1,143 @@
+'scopeName': 'source.mdsp56k'
+'name': 'Assembly (Motorola DSP56000/DSP56001)'
+'fileTypes': [
+  'asm'
+  'ASM'
+]
+# Patterns names try to match TextMate naming conventions as much as possible
+# However some sub-categories may need to be user defined to appear with different highlighting
+# than their parent category. See README.md file in this package for more info.
+'patterns': [
+  {
+    'match': '(;|\\B\\*).*'
+    'name': 'comment.mdsp56k'
+  }
+  {
+    'name': 'string.quoted.double.mdsp56k'
+    'begin': '"'
+    'end': '"'
+  }
+  {
+    'name': 'entity.name.function.mdsp56k'
+    'match': '^[a-zA-Z][a-zA-Z0-9_]*:'
+  }
+  {
+    'name': 'entity.name.function.local.mdsp56k'
+    'match': '^_[a-zA-Z0-9_]*:'
+  }
+  {
+    'name': 'support.constant.mdsp56k'
+    'match': '^[a-zA-Z_][a-zA-Z0-9_]*(?=( |\\t))'
+  }
+  {
+    'match': "\\'\\S\\'"
+    'name': 'string.quoted.single.mdsp56k'
+  }
+  {
+    #n.b. added test to avoid mixing up fractional and integer numbers
+    'match': '-?\\b[0-9]+(?!\\.)\\b'
+    'name': 'constant.numeric.dec.mdsp56k'
+  }
+  {
+    'match': '\\$[0-9a-fA-F]+\\b'
+    'name': 'constant.numeric.hex.mdsp56k'
+  }
+  {
+    'match': '%[0-1]+\\b'
+    'name': 'constant.numeric.bin.mdsp56k'
+  }
+  {
+    #every entry containing numbers with dots or exponent is float provided there is a space or comma just before to exclude hexadecimals (hard to detect the $ easily otherwise)
+    'match': '-?\\b[0-9]*([\\.]{1}[0-9]+([Ee]{1}-?[0-9]{1,2})*|[Ee]{1}-?[0-9]{1,2}){1}\\b'
+    'name': 'constant.numeric.float.mdsp56k'
+  }
+  {
+    #match A & B accumulators parts,X and Y (ALU registers - Class I parallel moves only) excluding X: and Y: memory addressing
+    'match': '\\b([abAB]([0-2])+|[xXyY](?!:))\\b'
+    'name': 'storage.other.register.aluabxyclassI.mdsp56k'
+  }
+  {
+    #match X ALU registers (Class I and II) excluding X: and Y: memory addressing
+    'match': '\\b[xX](?!:)([0-1])+\\b'
+    'name': 'storage.other.register.alux.mdsp56k'
+  }
+  {
+    #match Y ALU registers (Class I and II) excluding X: and Y: memory addressing
+    'match': '\\b[yY](?!:)([0-1])+\\b'
+    'name': 'storage.other.register.aluy.mdsp56k'
+  }
+  {
+    #match A & B accumulators registers (ALU, Class I & II) excluding X: and Y: memory addressing
+    'match': '\\b[abAB]\\b'
+    'name': 'storage.other.register.aluab.mdsp56k'
+  }
+  {
+    #match all AGU registers - low set
+    'match': '\\b([rnmRNM]([0-3]{1}))\\b'
+    'name': 'storage.other.register.agulow.mdsp56k'
+  }
+  {
+    #match all AGU registers - high set
+    'match': '\\b([rnmRNM]([4-7]{1}))\\b'
+    'name': 'storage.other.register.aguhigh.mdsp56k'
+  }
+  {
+    'match': '\\b(?i)(MR|CCR|SR|LC|LA|SSH|SSL|OMR)(?-i)\\b'
+    'name': 'storage.other.register.control.mdsp56k'
+  }
+  {
+    #Arithmetical operations
+    'match': '\\b(?i)(ABS|ADC|ADD|ADDL|ADDR|ASL|ASR|CLR|CMP|CMPM|DEC|DIV|INC|MAC|MACR|MPY|MPYR|NEG|NORM|RND|SBC|SUB|SUBL|SUBR|TST)(?-i)\\b'
+    'name': 'keyword.operator.arithmetic.mdsp56k'
+  }
+  {
+    #Logical operations
+    'match': '\\b(?i)(AND|ANDI|EOR|LSL|LSR|NOT|OR|ORI|ROL|ROR)(?-i)\\b'
+    'name': 'keyword.operator.logical.mdsp56k'
+  }
+  {
+    #Bit manipulation instructions
+    'match': '\\b(?i)(BCHC|BCLR|BSET|BTST)(?-i)\\b'
+    'name': 'keyword.operator.bitwise.mdsp56k'
+  }
+  {
+    #Loop, program flow change and assimilated
+    'match': '\\b(?i)(DO|ENDDO|REP|JCLR|JMP|JSCLR|JSET|JSSET|JSR|RTI|RTS|SWI)(?-i)\\b'
+    'name': 'keyword.control.flow.mdsp56k'
+  }
+  {
+    #dedicated Regex for Jcc and JScc
+    'match': '\\b(?i)(J(CC|CS|EC|EQ|ES|GE|GT|HS|LC|LE|LO|LS|LT|MI|NE|NN|NR|PL)|JS(CC|CS|EC|EQ|ES|GE|GT|HS|LC|LE|LO|LS|LT|MI|NE|NN|NR|PL))(?-i)\\b'
+    'name': 'keyword.control.conditional.flow.mdsp56k'
+  }
+  {
+    #transfer instructions
+    'match': '\\b(?i)(TFR|T(CC|CS|EC|EQ|ES|GE|GT|HS|LC|LE|LO|LS|LT|MI|NE|NN|NR|PL)|LUA|MOVE|MOVEM|MOVEP)(?-i)\\b'
+    'name': 'keyword.operator.assignment.mdsp56k'
+  }
+  {
+    #program control instructions
+    'match': '\\b(?i)(MOVEC|DEBUG|DEBUG(CC|CS|EC|EQ|ES|GE|GT|HS|LC|LE|LO|LS|LT|MI|NE|NN|NR|PL)|ILLEGAL|NOP|RESET|STOP|WAIT)(?-i)\\b'
+    'name': 'keyword.other.system.mdsp56k'
+  }
+  {
+    #memory bus selection X
+    'match': '\\b[xX]:'
+    'name': 'keyword.other.transferx.mdsp56k'
+  }
+  {
+    #memory bus selection Y
+    'match': '\\b[yY]:'
+    'name': 'keyword.other.transfery.mdsp56k'
+  }
+  {
+    #memory bus selection L and P (cover both X and Y memory areas for external memory map)
+    'match': '\\b[lpLP]:'
+    'name': 'keyword.other.transferlp.mdsp56k'
+  }
+  {
+    #Motorola assembler directives (only most common directives defined)
+    'match': '\\b(?i)(COMMENT|DEFINE|END|FAIL|INCLUDE|MODE|MSG|ORG|RADIX|UNDEF|WARN|EQU|GLOBAL|LOCAL|SECTION|ENDSEC|XDEF|XREF|BADDR|BSB|BSC|BSM|BUFFER|DC|DCB|DS|DSM|DSR|ENDBUF|OPT|IF|ENDM|ENDIF|EXITM)(?-i)\\b'
+    'name': 'keyword.other.directive.mdsp56k'
+  }
+]

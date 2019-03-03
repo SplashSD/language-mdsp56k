@@ -1,0 +1,20 @@
+{
+  "name": "language-mdsp56k",
+  "author": {
+    "name": "David Carrere",
+    "email": "davkarr@yahoo.fr"
+  },
+  "main": "./lib/mdsp56k",
+  "version": "0.0.0",
+  "description": "Syntax highlighting for Motorola DSP 56000/56001 assembly",
+  "keywords": [
+  ],
+  "repository": "https://github.com/SplashSD/language-mdsp56k",
+  "homepage": "https://github.com/SplashSD/language-mdsp56k#readme.md",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+  }
+}
